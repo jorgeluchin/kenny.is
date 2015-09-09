@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Second Screen Concept for Latin Billboard Awards | Kenny.is</title>
+    <meta name="description" content="Blog by Kenny Grant from Vancouver" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="icon" href="../assets/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css" />
+    <meta property="og:image" content="http://shugar.github.io/jekyll-test/assets/img/latin-billboard-second-screen-concept.png">
+    <meta property="og:title" content="Second Screen Concept for Latin Billboard Awards">
+    <meta property="og:site_name" content="kenny is...">
+    <meta property="og:description" content="Blog by Kenny Grant from Vancouver">
+    <meta property="fb:app_id" content="1458155574513410">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@allbombs">
+    <meta name="twitter:creator" content="@allbombs">
+    <meta name="twitter:image:src" content="http://shugar.github.io/jekyll-test/assets/img/latin-billboard-second-screen-concept.png">
+</head>
+
+<body><a href="../index.html" class="page-back">&larr;</a>
+    <article aria-role="main">
+        <div class="container">
+            <div class="post">
+                <h1>Second Screen Concept for Latin Billboard Awards</h1><span class="text-muted">May 10, 2013</span>
+                <div class="socials">
+                    <div class="socials-inner"><a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+                        <script>
+                        ! function(d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0],
+                                p = /^http:/.test(d.location) ? 'http' : 'https';
+                            if (!d.getElementById(id)) {
+                                js = d.createElement(s);
+                                js.id = id;
+                                js.src = p + '://platform.twitter.com/widgets.js';
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }
+                        }(document, 'script', 'twitter-wjs');
+                        </script>
+                        <div id="fb-root"></div>
+                        <script>
+                        (function(d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id)) return;
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=1458155574513410";
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));
+                        </script>
+                        <div class="fb-share-button" data-layout="button_count"></div>
+                    </div>
+                </div>
+                <p>Last year I was working on a Second Screen Platform to deliver synchronized content to smart phones, tablets, and laptops while watching television, movies, sports, or live events. I wanted to share some of those experiences with an example we built for The Latin Music Billboard Awards. The application was never officially launched, but we felt the application and concept far surpassed other second screen competitors like Mass Relevance and Twitter. </p>
+                <blockquote>
+                    <p>..the app that never took the big screen</p>
+                </blockquote>
+                <p><i>Note, the project and platform have been abandoned and all team members have since moved on. These concepts are from May 2012.</i></p>
+                <p>
+                    <br>
+                </p>
+                <!-- more -->
+                <p><img src="../assets/img/latin-billboard-second-screen-concept.png" alt=""></p>
+                <p>
+                    <h3>What the hell is a second screen, and what’s second screen content?</h3> It’s literally a second screen. The first screen is the actual event you’re watching (television, movie, or in person event). While watching the ‘first screen’ you could use a second screen (phone, tablet, laptop) to view additional content and interact with the event or other viewers. Secondary content could be just about anything. I would best describe it as additional content that enhances the users experience while watching the show or event.</p>
+                <br>
+                <h3>The Concept:</h3> We were building a companion iphone and android application to display secondary content for LIVE shows or prerecorded shows. The secondary content could be scheduled in advance, or populated on the fly. The platform offered tools for TV producers/hosts to white-label the application for their event, movie or show. In this case, users would download the Billboard Awards application to their smart phone.
+                <br>
+                <br> All secondary content is syncrnoized and delivered to secondary devices (phone, tablet, laptop) as a secondary timeline to the main event. Think of a youtube player having two timelines. One for the video, and one for the secondary content on your phone while watching.
+                <br>
+                <br> The goal is to obviously provide secondary content at the correct time, between 10 to 25 seconds after the live event. It’s imperative that nothing is sent too early or late, that could lead to some serious spoilers or confusion for viewers. We planned to syncronize the content by an audio trigger or time stamp. There’s pros and cons to both methods (local time zones, channel restrictions, live vs recorded, live vs dvd’s, pirated content, etc), but for the Latin Billboard example we planned to use universal time stamps (combo of server side and smart phones local timezone detection) to deliver content to secondary screens. We were using node.js to deliver the content
+                <br>
+                <br>
+                <h3>Here’s a quick rundown on the differences between syncronization methods:</h3>
+                <b>Audio Sync</b> - based on an audio water mark embeded to the video source or using an audio recognition provider (think shazam) that delivers show, episode, and show timestamp (not much in this space atm for exact time stamps). Content can be stored locally on phone, or downloaded from server during audio trigger and displayed within app.
+                <br>
+                <br>
+                <b>Time Based</b> - content is delivering based on users local time/timezone, or pushed to all devices globally. Examples of time based content:
+                <ul>
+                    <li>6:09pm push content #03 - video of telly tubbies dancing
+                    </li>
+                    <li>6:12pm push content #04 - ask the audience / poll
+                    </li>
+                    <li>6:15pm push content #05 - display sponsored content during commercial
+                    </li>
+                </ul>
+                <br> The time based method works best as audio recognition has major flaws. We discovered some breakthrough methods to deliver content based on audio events, but I’ll save that for another rainy day… This demo is focused at LIVE real time pushes (everyone gets the same content regardless of location/timezone). The content producer (person pushing content to secondary devices, usually the producer) can push out one of the following pieces of content:
+                <ol>
+                    <li>Text Update</li>
+                    <li>Photograph</li>
+                    <li>Video</li>
+                    <li>Poll/Vote Now</li>
+                    <li>Advertisement</li>
+                </ol>
+                These updates appear on a timeline similiar to the twitter or facebook timeline, and support sharing to your favorite social networks.
+                <br>
+                <br> Ok, lets’ get onto the demo. The Latin Billboard Awards uses the real time event theme (think sports, award show, election, etc). Here’s some wireframes and a walk through of the application from start to finsh:
+                <br>
+                <br>
+                <style>
+                .embed-container {
+                    position: relative;
+                    padding-bottom: 56.25%;
+                    padding-top: 30px;
+                    height: 0;
+                    overflow: hidden;
+                    max-width: 100%;
+                    height: auto;
+                }
+                
+                .embed-container iframe,
+                .embed-container object,
+                .embed-container embed {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+                </style>
+                <div class="embed-container">
+                    <iframe src="http://www.slideshare.net/slideshow/embed_code/30353103" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <br>
+                <br> We also built a video example to display the full potential of the music awards. We took some highlites from the 2011 Billboard Music Awards and created a short video of some different events that fans and viewers would (hopefully) interact with. On the left hand side is the television/event, with the right hand side displaying the second screen (mobile device). During the actual event, we would recommend 30-60 seconds between each update. This video illustrates some potential secondary content during the actual event. The key to secondary content is the actual content... It has to be relevant and interesting. Apologies, I can’t find the HD version of the clip, but i’m sure you’ll get the jist with the video below. Also, this example uses mobile web app vs native app, but we could accomodate both as native app is hybrid app:
+                <br>
+                <br>
+                <style>
+                .embed-container {
+                    position: relative;
+                    padding-bottom: 56.25%;
+                    padding-top: 30px;
+                    height: 0;
+                    overflow: hidden;
+                    max-width: 100%;
+                    height: auto;
+                }
+                
+                .embed-container iframe,
+                .embed-container object,
+                .embed-container embed {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+                </style>
+                <div class="embed-container">
+                    <iframe src="http://player.vimeo.com/video/67352980" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <br>
+                <br> After joining the second screen experience, you can interact with friends and others interacting within the second screen experience. The secondary content is the baseline and the building blocks of second screen content.
+                <br>
+                <br> Would love to hear what you think of our second screen experience. Will share the details of another second screen experience we produced for a television show in another post. Stay tuned..
+                <br>
+                <br>
+                <b>Disclaimer</b> - project and platform has been shelved. All video footage is copyright of Billboard. The intention of this post is to share some of our findings and visions behind a true second screen experience and event. Talented team behind this? <a target="_blank" href="https://twitter.com/maxparm" rel="nofollow">Max</a>, <a target="_blank" href="https://twitter.com/dirb" rel="nofollow">Romain</a>, <a target="_blank" href="https://twitter.com/mechastorm" rel="nofollow">Shih Oon</a>. Follow them!</div>
+            <h3>How would you modify and improve this concept?</h3>
+            <div id="disqus_thread"></div>
+            <script>
+            var disqus_shortname = "kennyis";
+            (function() {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+            </script>
+        </div>
+    </article>
+    <footer aria-role="contentinfo">
+        <div class="container">
+            <div id="section-container">
+                <section>
+                    <div class="section-title">
+                        Kenny Grant</div>
+                    <ul>
+                        <li> <a href="http://kennygrant.ca">About</a></li>
+                        <li> <a href="http://kennygrant.ca/#contact">Contact</a></li>
+                        <li> <a href="#">Experiments</a></li>
+                        <li> <a href="../reading.html">Reading</a></li>
+                        <li> <a href="../hire-me.html">Hire Me</a></li>
+                        <li> <a href="../archive.html">Archive</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <div class="section-title">Stay Connected</div>
+                    <ul>
+                        <li>
+                            <!-- twitter button  - https://dev.twitter.com/docs/follow-button -->
+                            <script>
+                            ! function(d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (!d.getElementById(id)) {
+                                    js = d.createElement(s);
+                                    js.id = id;
+                                    js.src = "//platform.twitter.com/widgets.js";
+                                    fjs.parentNode.insertBefore(js, fjs);
+                                }
+                            }(document, "script", "twitter-wjs");
+                            </script><a href="https://twitter.com/allbombs" data-show-count="true" data-lang="en" class="twitter-follow-button">Follow @allbombs</a></li>
+                        <li>
+                            <iframe src="//www.facebook.com/plugins/follow.php?href=http%3A%2F%2Fwww.facebook.com%2Fkennygrant&amp;width=61&amp;height=20&amp;colorscheme=light&amp;layout=standard&amp;show_faces=true&amp;appId=418002298302793" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:61px; height:20px;" allowTransparency="true"></iframe>
+                        </li>
+                        <li>
+                            <!-- angel list button -->
+                            <a href="https://angel.co/kenny-grant?follow=1&type=User&id=45596"></a>
+                            <script src="https://angel.co/javascripts/embed.js" type="text/javascript"></script>
+                        </li>
+                        <li>
+                            <style>
+                            .ig-b- {
+                                display: inline-block;
+                            }
+                            
+                            .ig-b- img {
+                                visibility: hidden;
+                            }
+                            
+                            .ig-b-:hover {
+                                background-position: 0 -60px;
+                            }
+                            
+                            .ig-b-:active {
+                                background-position: 0 -120px;
+                            }
+                            
+                            .ig-b-v-24 {
+                                width: 137px;
+                                height: 24px;
+                                background: url(//badges.instagram.com/static/images/ig-badge-view-sprite-24.png) no-repeat 0 0;
+                            }
+                            
+                            @media only screen and (-webkit-min-device-pixel-ratio: 2),
+                            only screen and (min--moz-device-pixel-ratio: 2),
+                            only screen and (-o-min-device-pixel-ratio: 2 / 1),
+                            only screen and (min-device-pixel-ratio: 2),
+                            only screen and (min-resolution: 192dpi),
+                            only screen and (min-resolution: 2dppx) {
+                                .ig-b-v-24 {
+                                    background-image: url(//badges.instagram.com/static/images/ig-badge-view-sprite-24@2x.png);
+                                    background-size: 160px 178px;
+                                }
+                            }
+                            </style>
+                            <a href="http://instagram.com/allbombs?ref=badge" class="ig-b- ig-b-v-24"><img src="//badges.instagram.com/static/images/ig-badge-view-24.png" alt="Instagram" /></a>
+                        </li>
+                        <li> <a href="https://plus.google.com/+KennyGrant?rel=author">Google</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <div class="section-title">
+                        Subscribe For New Updates</div>
+                    <!-- mail chimp http://kb.mailchimp.com/article/embed-code-css-reference/  -->
+                    <!-- Begin MailChimp Signup Form -->
+                    <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" />
+                    <style>
+                    #mc_embed_signup {
+                        background: #fff;
+                        clear: left;
+                        font: 14px Helvetica, Arial, sans-serif;
+                    }
+                    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+                    </style>
+                    <div id="idmc_embed_signup">
+                        <form id="mc-embedded-subscribe-form" action="http://kennygrant.us6.list-manage.com/subscribe/post?u=6b98493cc2e9ddaae1c981401&amp;amp;id=d6c184c4d4" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate="novalidate" class="validate">
+                            <label for="EMAIL" class="sr-only">Subscribe For New Updates</label>
+                            <input id="mce-EMAIL" type="email" value="" name="EMAIL" placeholder="Enter email.." required="required" class="email" />
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div style="position: absolute; left: -5000px;">
+                                <input type="text" name="b_6b98493cc2e9ddaae1c981401_d6c184c4d4" value="" />
+                            </div>
+                            <div class="clear">
+                                <input id="mc-embedded-subscribe" type="submit" value="Join" name="subscribe" class="button" />
+                            </div>
+                        </form>
+                    </div>
+                    <!--End mc_embed_signup-->
+                    <p class="help-block">Your email is totally safe, promise.</p>
+                </section>
+            </div>
+        </div>
+        <div id="powered-by-container">
+            <div class="container">
+                <section>Powered by Little Monkey</section>
+            </div>
+        </div>
+    </footer>
+    <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35715544-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+</body>
+
+</html>
